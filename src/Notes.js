@@ -20,26 +20,11 @@ const Notes = () => {
         
     },[]) 
 
-    // const handleDelete = ()=>{
-    //     const colRef = doc("Notes" )
-    //     deleteDoc(colRef)
-    //     .then(()=>{
-    //         alert("deleted")
-    //     })
-    //     console.log(colRef)
-    //     // addDoc(colRef, {
-    //     //     title: title,
-    //     //     note: details
-    //     //  })
-    // }
-    
-function handleDelete(){
-    const docRef = doc(db, "Notes", notes.id)
+  function handleDelete () {
+    const docRef = doc(db, "Notes")
     deleteDoc(docRef)
-    .then(()=>{
-        alert('sucess')
-    })
-}
+  }
+
     return ( 
         <div className="addnote">
             <div className="search contain flex items-center">
@@ -50,10 +35,10 @@ function handleDelete(){
             </div>
             
             <div className="  grid md:grid-cols-4 grid-cols-3  gap-5 w-auto my-10">
-               {notes.map((note)=>{
+               {notes.map((note) =>{
                return (
                 <div 
-                className="bg-gray-900 lets p-3 rounded-xl hover:scale-[101%] duration-700" > 
+                className="bg-gray-900 lets p-3 rounded-xl hover:scale-[101%] duration-700" key={note.id}> 
                 <h1 className="text-xl mb-3 text-white">{note.title}</h1>
                 <p className="text-gray-300">{note.note}</p>
                 
