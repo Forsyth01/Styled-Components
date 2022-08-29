@@ -1,19 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,500;1,400&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body{
-    font-family: 'Josefin Sans', sans-serif;
+    background-color: black;
+}
+input .height{
+    height: 100vh;
 }
 
+.lets{
+    height: auto;
+}
 
-
-header{
-    
-    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),url(./Images/Background\ Image\ \(1\).png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-   
+.lets {
+    height: fit-content;
+    /* width: fit-content; */
 }
