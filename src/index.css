@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: black;
+}
+input .height{
+    height: 100vh;
+}
+
+.lets{
+    height: auto;
+}
+
+.lets {
+    height: fit-content;
+    /* width: fit-content; */
+}
