@@ -1,19 +1,31 @@
-import * as React from 'react'
-import Notes from './Notes';
+
+import './App.css';
+import * as React from 'react';
 import Navbar from './Navbar';
+import Header from './Header';
+import Footer from './Footer';
+import {motion} from 'framer-motion'
 
 
 
-const App = () => {
-  return ( 
-    <header className="app bg-black h-[100vh] text-white">
-      <div className="m-auto w-[90%]">
+
+
+function App() {
+  return (
+    <motion.header
+    className="App text-white">
+      <motion.div 
+       initial = {{rotateZ:180}}
+       animate = {{rotateZ:0}}
+       transition={{ duration: 1}}
+      className="m-auto md:w-[90%] w-[85%] py-12">
       <Navbar/>
-     <Notes/>
-    </div>
-    </header>
-          
-   );
+      <Header/>
+      <Footer/>
+      </motion.div>
+    </motion.header>
+  
+  );
 }
- 
+
 export default App;
