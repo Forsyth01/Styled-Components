@@ -2,27 +2,28 @@ import SearchIcon from '@mui/icons-material/Search'
 import { Link } from 'react-router-dom';
 import {AiOutlineDelete, AiOutlinePlus} from 'react-icons/ai'
 import {useEffect, useState} from 'react'
-import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore'
+import {collection, getDocs, deleteDoc, doc, orderBy, onSnapshot} from 'firebase/firestore'
 import{db} from '../src/firebase'
 
 const Notes = () => {
     const colRef = collection (db, 'Notes')
     const [notes, setNotes] = useState([])
+    const [isLoading, setIsloading] = useState(true)
 
+    
     useEffect(()=>{
-        getDocs(colRef)
-        
         const notess = async ()=>{
             const data = await getDocs(colRef);
             setNotes(data.docs.map((doc)=> ({...doc.data(), id:doc.id})))
+            setIsloading(false)
+        
         };
         notess(); 
-        
     },[]) 
 
-  function handleDelete () {
-    const docRef = doc(db, "Notes")
-    deleteDoc(docRef)
+  function handleDelete(id) {
+    const docRef = doc(db, "Notes", id)
+     deleteDoc(docRef)
   }
 
     return ( 
@@ -33,34 +34,34 @@ const Notes = () => {
               placeholder="Search notes"
               />
             </div>
-            
-            <div className="  grid md:grid-cols-4 grid-cols-3  gap-5 w-auto my-10">
+            {isLoading && <div>Loading....</div>}
+            <div className=" grid cursor-pointer break-words whitespace-pre-wrap overflow-hidden md:grid-cols-4 grid-cols-2  gap-5 m-auto my-10 ">
                {notes.map((note) =>{
                return (
                 <div 
-                className="bg-gray-900 lets p-3 rounded-xl hover:scale-[101%] duration-700" key={note.id}> 
-                <h1 className="text-xl mb-3 text-white">{note.title}</h1>
+                className="bg-gray-900 p-3 h-fit rounded-xl hover:scale-[101%] duration-700 w-[100%]"> 
+                <Link to = {`/notes/${note.id}`}>
+                <h1 className="text-xl mb-4 text-white font-bold">{note.title}</h1>
                 <p className="text-gray-300">{note.note}</p>
-                
-                <span className="flex py-2 justify-between">
+                 </Link>
+                <div className="flex justify-between items-center">
                         <div className="text-yellow-700">
-                            <p>Time</p>
+                        <i onClick = {()=> handleDelete(note.id)}> <AiOutlineDelete className='text-2xl hover:text-yellow-60'/></i> 
                         </div>
-                        <div className="text-yellow-700">
-                          <i onClick = {handleDelete}> <AiOutlineDelete className='text-2xl hover:text-yellow-600'/></i> 
+                        <div className="text-yellow-70">
+                          <i onClick = {()=> handleDelete(note.id)}> <AiOutlineDelete className='text-2xl hover:text-yellow-600'/></i> 
                         </div>
-                    </span>
+                    </div>
                 </div>
             )
         })} 
 
+            <div className="add sticky">  
+                <Link to = "/addnote"> <AiOutlinePlus className=' absolute  right-[5%] bottom-[5%] bg-yellow-700 text-gray-100 p-2 hover:bg-yellow-600 rounded-full text-5xl'/></Link>
+            </div>
         </div>
             
 
-            <div className="add sticky bottom-[10%]  ">
-               
-                <Link to = "/addnote"> <AiOutlinePlus className=' absolute right-[5%]  bg-yellow-700 text-gray-100 p-2 hover:bg-yellow-600 rounded-full text-5xl'/></Link>
-            </div>
         </div>
      );
 }

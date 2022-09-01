@@ -7,6 +7,8 @@ import {BrowserRouter,
         Routes,
         Route } from 'react-router-dom'
 import Addnote from './Addnote';
+import { NoteDetails } from './NoteDetails';
+import Notes from './Notes';
 
 
 
@@ -20,6 +22,8 @@ root.render(
    <Routes>
        <Route path = "/" element = {<App/>}></Route>  
        <Route path = "/addnote" element = {<Addnote/>}></Route>  
+       <Route path = "/notes" element = {<Notes/>}></Route>  
+       <Route path = "/notes/:id" element = {<NoteDetails/>}></Route>  
     </Routes>
   </React.StrictMode>
   </ParallaxProvider>

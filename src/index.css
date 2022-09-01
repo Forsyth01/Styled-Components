@@ -9,11 +9,9 @@ input .height{
     height: 100vh;
 }
 
-.lets{
-    height: auto;
-}
+
 
 .lets {
-    height: fit-content;
-    /* width: fit-content; */
+   
+    /* word-wrap: break-word; */
 }
