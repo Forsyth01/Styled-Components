@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {collection, addDoc,serverTimestamp} from 'firebase/firestore'
 import {db} from '../src/firebase'
 import {useNavigate} from 'react-router-dom'
+import { getAuth, onAuthStateChanged} from 'firebase/auth'
 
 
 const Addnote = () => {
@@ -9,13 +10,16 @@ const Addnote = () => {
     const [details, SetDetails] = useState("")
     const colRef = collection (db, 'Notes')
     const navigate = useNavigate()
+    const auth = getAuth();
     
     function handleSubmit(e){
         e.preventDefault()
+       
         if (title || details !== ""){
             addDoc(colRef, {
-               title: title,
+               title,
                note: details,
+               creator:  {id:auth.currentUser.uid},
                createdAt: serverTimestamp()
             })
             .then(()=>{

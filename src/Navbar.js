@@ -3,8 +3,7 @@ import {BsPower} from "react-icons/bs"
 import {
     Popover,
     PopoverHandler,
-    PopoverContent,
-    Button,
+    PopoverContent
   } from "@material-tailwind/react";
 import { Logout } from "./Logout";
 
@@ -29,7 +28,6 @@ const Navbar = () => {
                         <Logout/>
                     </PopoverContent>
                  </Popover>
-                    {/* <div className="font-extrabold text-2xl text-yellow-700 cursor-pointer hover:text-yellow-600"><BsPower/></div> */}
             </div>
         </div>
      );

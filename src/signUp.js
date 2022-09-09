@@ -36,12 +36,11 @@ export const Signup = () => {
         <div className="m-auto w-[90%]">
             <h1 className="text-yellow-800 font-bold text-3xl my-10 absolute">Sign Up </h1>
             <form onSubmit={handleSubmit} className="space-y-5 flex flex-col m-auto w-[70%] md:w-[50%] h-[90vh] justify-center " onSubmit={handleSubmit}>
-                <div className="text-center text-gray-300 text-2xl font-bold tracking-wide">Signup</div>
+                <div className="text-center text-gray-300 text-2xl font-bold tracking-wide uppercase">Signup</div>
             
                     <div className="block">
                         <p className=" text-yellow-800 mb-5">{error}</p>
                     
-                    {/* <label className='mr-3 text-sm font-light text-gray-200'>Username</label> */}
                     <input type="email" 
                     placeholder='Email'
                     className='p-3 rounded bg-gray-200 outline-none w-[100%]'
@@ -50,7 +49,6 @@ export const Signup = () => {
                     />
                     </div>
                     <div className="block">
-                    {/* <label className='mr-3 text-sm font-light text-gray-200' >Password:</label> */}
                     <input type="password" 
                     placeholder='Password'
                     value={password}
@@ -58,7 +56,7 @@ export const Signup = () => {
                     className='p-3 rounded bg-gray-200 outline-none  w-[100%]'
                     />
                </div>
-                <p className="text-gray-200">Have an account already? <Link to = "/login" className='text-yellow-800'>signin</Link></p>
+                <p className="text-gray-200">Have an account already? <Link to = "/" className='text-yellow-800'>signin</Link></p>
                <button type='submit' className='bg-yellow-800 text-gray-200 hover:bg-yellow-700 px-3 py-3 rounded-xl w-[40%]'>Signup</button>
             </form>
         </div>

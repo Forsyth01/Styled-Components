@@ -9,12 +9,10 @@ export const Logout = () => {
 
         signOut(auth)
         .then((res)=>{
-            
         })
         .then(()=>{
             navigate('/login')
         })
-       
     }
 
   return (

@@ -1,5 +1,5 @@
 import {initializeApp} from 'firebase/app'
-import {getFirestore} from 'firebase/firestore'
+import {getFirestore, getAuth} from 'firebase/firestore'
 
 
 const firebaseConfig = {
@@ -9,6 +9,7 @@ const firebaseConfig = {
   storageBucket: "my-notes-e81f5.appspot.com",
   messagingSenderId: "355369081169",
   appId: "1:355369081169:web:9620e492f5dea478811b70"
+
 };
 
  const app = initializeApp(firebaseConfig);

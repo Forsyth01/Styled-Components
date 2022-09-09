@@ -1,25 +1,27 @@
-import React, {useContext, useState} from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React, { useContext, useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import { NoteContext } from './NoteContext';
+import { doc, onSnapshot } from 'firebase/firestore'
+import { db } from '../src/firebase'
+
 
 
 export const NoteDetails = () => {
-  const [notes] = useContext(NoteContext)
-  const {id} = useParams()
-  
-  console.log(notes)
 
-  return (
-  
-      <div className="text-white ">
-         
-          {/* <h1>Hello </h1>
-          <h1>{notes.title}</h1>
-          {notes.map((note)=>{
-            <div className="">
-              <h1>{note.title}</h1>
-            </div>
-          })} */}
+    const [noteDetails, setNoteDetails] = useState([])
+    const {id} = useParams()
+
+
+        const docRef = doc(db, "Notes", id)
+        onSnapshot( docRef, (doc) => {
+            setNoteDetails(doc.data(), doc.id)
+        })
+
+
+    return (
+        <div className="text-white">
+            <h1 className="text-4xl-font-bold">{noteDetails.title}</h1>
+            <h1 className="text-xl-font-bold">{noteDetails.note}</h1>
         </div>
-  )
+    )
 }
