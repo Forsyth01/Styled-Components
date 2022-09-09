@@ -54,6 +54,7 @@ const Notes = () => {
                     </div>}
                 </div>
             })} */}
+            
             <div className="grid cursor-pointer break-words whitespace-pre-wrap overflow-hidden md:grid-cols-3 grid-cols-2 xl:grid-cols-4 gap-5 m-auto my-10 ">
                 {notes.map((note) => {
                     return (
