@@ -8,18 +8,19 @@ import { Home } from './Home';
 
 
 const App = () => {
-  // const auth = getAuth()
-  // const navigate = useNavigate()
+  
+  const auth = getAuth()
+  const navigate = useNavigate()
 
-  // useEffect(()=>{
-  //     onAuthStateChanged(auth, (user)=>{
-  //       if(!user){
-  //     navigate('./login')
-  //   }else{
+  useEffect(()=>{
+      onAuthStateChanged(auth, (user)=>{
+        if(!user){
+      navigate('./login')
+    }else{
       
-  //   }
-  //   }) 
-  // })
+    }
+    }) 
+  })
 
   return ( 
     <NoteProvider>

@@ -22,15 +22,11 @@ export const Home = () => {
                     placeholder="Search notes"
                 />
             </div>
-
             {isLoading && <div>Loading...</div>}
-
-            {/* <div className=" grid cursor-pointer break-words whitespace-pre-wrap overflow-hidden md:grid-cols-3 grid-cols-2 xl:grid-cols-4 gap-5 m-auto my-10 "> */}
             <Notes />
             <div className="add  absolute right-[10%] bottom-[10%]">
                 <Link to="/addnote"> <AiOutlinePlus className=' sticky bg-yellow-700 text-gray-100 p-2 hover:bg-yellow-600 rounded-full text-5xl' /></Link>
             </div>
         </div>
-        // </div>
     );
 }

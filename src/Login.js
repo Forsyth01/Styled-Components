@@ -27,9 +27,7 @@ export const Login = () => {
     <header>
         <div className="">
             <div className="m-auto w-[90%]">
-                {/* <h1 className="text-yellow-800 font-bold text-3xl my-10 absolute">Sign in </h1> */}
                 <form onSubmit={handleSubmit} className="space-y-5 flex flex-col m-auto w-[70%] md:w-[50%] h-[90vh] justify-center ">
-                
                         <div className="block">
                         <div className="text-center text-gray-300 text-2xl font-bold tracking-wide">LOG<span className='text-yellow-800'>IN</span></div>
                         <p className=" text-yellow-800 mb-5">{error}</p>
@@ -41,7 +39,6 @@ export const Login = () => {
                         />
                         </div>
                         <div className="block">
-                       
                         <input type="password" 
                         placeholder='Password'
                         value={password}

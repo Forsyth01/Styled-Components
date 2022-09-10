@@ -19,7 +19,7 @@ const Addnote = () => {
             addDoc(colRef, {
                title,
                note: details,
-               creator:  {id:auth.currentUser.uid},
+               user:  auth.currentUser.uid,
                createdAt: serverTimestamp()
             })
             .then(()=>{
