@@ -20,7 +20,8 @@ const Addnote = () => {
                title,
                note: details,
                user:  auth.currentUser.uid,
-               createdAt: serverTimestamp()
+               createdAt: serverTimestamp(),
+               time : new Date().getTime()
             })
             .then(()=>{
                 SetTitle("")

@@ -19,7 +19,7 @@ export const NoteDetails = () => {
     return (
         <div className="text-gray-200">
             <div className="m-auto w-[80%] pt-10">
-            <h1 className="text-4xl font-bold normal-case pb-3">{noteDetails.title}</h1>
+            <h1 className="text-3xl font-bold normal-case pb-3">{noteDetails.title}</h1>
             <h1 className="text-xl-">{noteDetails.note}</h1>
             </div>
         </div>

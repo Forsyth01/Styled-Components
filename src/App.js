@@ -1,6 +1,4 @@
 import * as React from 'react'
-import Notes from './Notes';
-import { NoteProvider } from './NoteContext';
 import {getAuth, onAuthStateChanged} from 'firebase/auth'
 import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -23,14 +21,13 @@ const App = () => {
   })
 
   return ( 
-    <NoteProvider>
+    
     <header className="app bg-black h-[100vh] text-white">
     <div className="m-auto w-[85%]"> 
-     {/* <Notes /> */}
      <Home/>
     </div> 
     </header>
-    </NoteProvider>   
+    
    );
 }
  
