@@ -1,34 +1,40 @@
-import * as React from 'react'
-import {getAuth, onAuthStateChanged} from 'firebase/auth'
-import { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import { Home } from './Home';
+
+import './App.css';
+import * as React from 'react';
+import { Navbars } from './Components/Navbar';
+import { Cards } from './Components/Cards';
+import { Pop } from './Components/Popover';
+import Accord from './Components/Accordion';
+import OpenDialog from './Components/OpenDialog';
+import DropMenu from './Components/DropMenu';
+import SelectDropDownMenu from './Components/SelectDropDownMenu';
+import ToggleSwitch from './Components/ToggleSwitch';
+import Tabss from './Components/Tabs';
+import ToolTip from './Components/ToolTip';
+import { Loading } from './Components/Loading';
+import { Footer } from './Components/Footer';
 
 
-const App = () => {
-  
-  const auth = getAuth()
-  const navigate = useNavigate()
 
-  useEffect(()=>{
-      onAuthStateChanged(auth, (user)=>{
-        if(!user){
-      navigate('./login')
-    }else{
-      
-    }
-    }) 
-  })
 
-  return ( 
-    
-    <header className="app bg-black h-[100vh] text-white">
-    <div className="m-auto w-[85%]"> 
-     <Home/>
-    </div> 
-    </header>
-    
-   );
+
+function App() {
+  return (
+    <div className="App space-y-10">
+      <Navbars />
+      <ToggleSwitch />
+      <ToolTip />
+      <Loading />
+      <Pop />
+      <OpenDialog />
+      <DropMenu />
+      <Cards />
+      <Accord />
+      <SelectDropDownMenu />
+      <Tabss />
+      <Footer />
+    </div>
+  );
 }
- 
+
 export default App;
