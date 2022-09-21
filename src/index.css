@@ -1,23 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,500;1,400&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,500;1,400&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet")
 body{
-    background-color: #111111;
-    color: white;
-   
+    font-family: josefin sans;
 }
 
-*{
-    scroll-behavior: smooth;
-}
-
- input, textarea{
-    outline: none;
-}
-
-.bgimages{
-    background-image: url(./Images/full\ background.png);
-    background-size: cover;
-
-}
